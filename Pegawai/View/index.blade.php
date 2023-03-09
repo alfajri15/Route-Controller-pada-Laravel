@@ -9,6 +9,29 @@
 $ar_judul = ['No','NIP','Nama','Alamat','Email'];
 $no = 1;
 @endphp
+<a class="btn btn-primary btn-md"
+href="{{ route('pegawai.store') }}" role="button">Tambah Pegawai</a><br/><br/>
+<table class="table table-striped">    
+    <thead>
+        <tr>
+        @foreach($ar_judul as $jdl)
+        <th>{{ $jdl }}</th>
+        @endforeach
+        </tr>
+    </thead>
+    {{-- Lanjutan Isi Konten Data Pegawai --}}
+    <tbody>
+    @foreach($ar_pegawai as $peg)
+    <tr>
+    <td>{{ $no++ }}</td>
+    <td>{{ $peg->nip }}</td>
+    <td>{{ $peg->nama }}</td>
+    <td>{{ $peg->alamat }}</td>
+    <td>{{ $peg->email }}</td>
+    </tr>
+    @endforeach
+    </tbody>
+</table>
 @stop
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
